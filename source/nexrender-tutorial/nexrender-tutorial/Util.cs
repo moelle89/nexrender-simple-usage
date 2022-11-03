@@ -33,13 +33,13 @@ namespace nexrender_tutorial
 
         public static List<string> _days = new List<string>
         {
-            "file:///d:/nexrender_ae_rendering/AE template/_img/input_img_0.jpg",
-            "file:///d:/nexrender_ae_rendering/AE template/_img/input_img_1.jpg",
-            "file:///d:/nexrender_ae_rendering/AE template/_img/input_img_2.jpg",
-            "file:///d:/nexrender_ae_rendering/AE template/_img/input_img_3.jpg",
-            "file:///d:/nexrender_ae_rendering/AE template/_img/input_img_4.jpg",
-            "file:///d:/nexrender_ae_rendering/AE template/_img/input_img_5.jpg",
-            "file:///d:/nexrender_ae_rendering/AE template/_img/input_img_6.jpg"
+            "file:///C:/nexrender-simple-usage/AE template/_img/input_img_0.jpg",
+            "file:///C:/nexrender-simple-usage/AE template/_img/input_img_1.jpg",
+            "file:///C:/nexrender-simple-usage/AE template/_img/input_img_2.jpg",
+            "file:///C:/nexrender-simple-usage/AE template/_img/input_img_3.jpg",
+            "file:///C:/nexrender-simple-usage/AE template/_img/input_img_4.jpg",
+            "file:///C:/nexrender-simple-usage/AE template/_img/input_img_5.jpg",
+            "file:///C:/nexrender-simple-usage/AE template/_img/input_img_6.jpg"
         };
 
     }

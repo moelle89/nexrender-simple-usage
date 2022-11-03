@@ -26,7 +26,7 @@ namespace nexrender
                 {
                     template = new Template
                     {
-                        src = @"file:///d:/nexrender_ae_rendering/AE template/main.aep",
+                        src = @"file:///C:/nexrender-simple-usage/AE template/main.aep",
                         composition = "Comp 1"
                     },
                     assets = new List<Assets>
@@ -80,7 +80,7 @@ namespace nexrender
                             {
                                 module = "@nexrender/action-copy",
                                 input = $"{user.Username}.mp4",
-                                output = $"D:/nexrender_ae_rendering/rendered/{user.Username}.mp4"
+                                output = $"C:/nexrender-simple-usage/rendered/{user.Username}.mp4"
                             }
                         }
                     }
