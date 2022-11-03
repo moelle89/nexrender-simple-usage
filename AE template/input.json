@@ -1,0 +1,19 @@
+{
+  "Comp 1": {
+    "title": {
+		  "text": "Modern Warfare 2: Amsterdam-Hotel überlegt rechtliche Schritte",
+		  "color": "#E60822",
+		  "color_dark": "#ff1c42"
+    },
+	  "subtext": {
+		  "text": "Modern Warfare 2: Amsterdam-Hotel überlegt rechtliche Schritte",
+		  "color": "#222222",
+		  "color_dark": "#ffffff"
+    },
+	  "bg": {
+		  "color": "#ffffff",
+		  "color_dark": "#111111"
+    },
+    "darkmode": 1
+	}
+}

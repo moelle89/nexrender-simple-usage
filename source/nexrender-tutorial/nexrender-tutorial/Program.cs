@@ -26,8 +26,8 @@ namespace nexrender
                 {
                     template = new Template
                     {
-                        src = @"file:///d:/nexrender-tutorial/Untitled Project.aep",
-                        composition = "main"
+                        src = @"file:///d:/nexrender_ae_rendering/AE template/main.aep",
+                        composition = "Comp 1"
                     },
                     assets = new List<Assets>
                     {
@@ -41,44 +41,29 @@ namespace nexrender
                         new Assets
                         {
                             type = "data",
-                            layerName = "FavoriteTime",
+                            layerName = "Darkmode",
                             property = "Source Text",
-                            value = $"{user.FavoriteTime}"
+                            value = $"{user.Darkmode}"
                         },
                         new Assets
                         {
                             type = "data",
-                            layerName = "FavoriteDay",
+                            layerName = "Headline",
                             property = "Source Text",
-                            value = $"{user.FavoriteDay}"
+                            value = $"{user.Headlines}"
                         },
                         new Assets
                         {
                             type = "data",
-                            layerName = "DeliveryTime",
+                            layerName = "Subline",
                             property = "Source Text",
-                            value = $"{user.DeliveryTime}"
-                        },
+                            value = $"{user.Sublines}"
+                        },                       
                         new Assets
                         {
-                            type = "data",
-                            layerName = "FavoritePizza",
-                            property = "Source Text",
-                            value = $"{user.FavoritePizza}"
-                        },
-                        new Assets
-                        {
-                            type = "data",
-                            layerName = "YearSum",
-                            property = "Source Text",
-                            value = $"{user.YearSum}"
-                        },
-                        new Assets
-                        {
-                            type = "data",
-                            layerName = "MonthSum",
-                            property = "Source Text",
-                            value = $"{user.MonthSum}"
+                             src = $"{user.Images}",
+                             type = "image",
+                             layerName = "background.jpg"
                         }
                     },
                     actions = new Actions()
@@ -95,7 +80,7 @@ namespace nexrender
                             {
                                 module = "@nexrender/action-copy",
                                 input = $"{user.Username}.mp4",
-                                output = $"D:/nexrender-tutorial/rendered/{user.Username}.mp4"
+                                output = $"D:/nexrender_ae_rendering/rendered/{user.Username}.mp4"
                             }
                         }
                     }
@@ -113,28 +98,26 @@ namespace nexrender
         }
         static void StartNexrender(int video)
         {
-            string binary = "--binary=@\"C:/Program Files\\Adobe\\Adobe After Effects CC 2019\\Support Files\\aerender.exe\"";
-            System.IO.File.WriteAllText(@"D:\\nexrender-tutorial\main.json", JsonConvert.SerializeObject(_nexrenderDataModel[video]));
+            string binary = "--binary=@\"C:/Program Files\\Adobe\\Adobe After Effects 2023\\Support Files\\aerender.exe\"";
+            System.IO.File.WriteAllText(@"D:\\nexrender_ae_rendering\nexrender\main.json", JsonConvert.SerializeObject(_nexrenderDataModel[video]));
             var proc = System.Diagnostics.Process.Start(
-                @"D:\nexrender-tutorial\nexrender\nexrender-cli-win64.exe",
-                $"--file D:/nexrender-tutorial/main.json {binary}");
+                @"D:\nexrender_ae_rendering\nexrender\nexrender-cli-win64.exe",
+                $"--file D:/nexrender_ae_rendering/nexrender/main.json {binary}");
             proc.WaitForExit();
         }
         static void GenerateData()
         {
-            var countUsers = 5;
+            var countUsers = 7;
             for (int userId = 1; userId < countUsers + 1; userId++)
             {
-                var yearSum = rnd.Next(512, 4813);
+                int index = userId -1;
                 _userStatisticsData.Add(new UserStatisticsDataModel
                 {
-                    DeliveryTime = $"{rnd.Next(10, 65)} min",
-                    FavoriteDay = $"{Util._days[rnd.Next(0, Util._days.Count)]}",
-                    FavoritePizza = $"{Util._pizzaNames[rnd.Next(0, Util._pizzaNames.Count)]}",
-                    FavoriteTime = $"{rnd.Next(1, 23)}:00",
-                    YearSum = $"{yearSum}",
-                    MonthSum = $"{yearSum / 12}",
-                    Username = $"user {userId}"
+                    Darkmode = $"{rnd.Next(1, 3)}",
+                    Headlines = $"{Util._headlines[index]}",
+                    Sublines = $"{Util._sublines[index]}",
+                    Images = $"{Util._days[index]}",
+                    Username = $"promo_{userId}"
 
                 });
             }
