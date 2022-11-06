@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace nexrender_tutorial.Models
+﻿namespace nexrender_tutorial.Models
 {
     public class NexrenderDataModel
     {

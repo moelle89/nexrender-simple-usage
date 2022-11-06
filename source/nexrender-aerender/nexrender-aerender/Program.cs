@@ -1,8 +1,7 @@
-﻿using System.Diagnostics;
-using System.Text.Json.Serialization;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using nexrender_tutorial;
 using nexrender_tutorial.Models;
+using System;
 
 namespace nexrender
 {
@@ -99,15 +98,15 @@ namespace nexrender
         static void StartNexrender(int video)
         {
             string binary = "--binary=@\"C:/Program Files\\Adobe\\Adobe After Effects 2023\\Support Files\\aerender.exe\"";
-            System.IO.File.WriteAllText(@"D:\\nexrender_ae_rendering\nexrender\main.json", JsonConvert.SerializeObject(_nexrenderDataModel[video]));
+            System.IO.File.WriteAllText(@"C:\\nexrender-simple-usage\nexrender\main.json", JsonConvert.SerializeObject(_nexrenderDataModel[video]));
             var proc = System.Diagnostics.Process.Start(
-                @"D:\nexrender_ae_rendering\nexrender\nexrender-cli-win64.exe",
-                $"--file D:/nexrender_ae_rendering/nexrender/main.json {binary}");
+                @"C:\nexrender-simple-usage\nexrender\nexrender-cli-win64.exe",
+                $"--file C:/nexrender-simple-usage/nexrender/main.json {binary}");
             proc.WaitForExit();
         }
         static void GenerateData()
         {
-            var countUsers = 7;
+            var countUsers = Util._headlines.Count;
             for (int userId = 1; userId < countUsers + 1; userId++)
             {
                 int index = userId -1;
