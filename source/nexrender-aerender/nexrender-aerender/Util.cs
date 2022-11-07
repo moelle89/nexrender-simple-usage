@@ -8,6 +8,8 @@ namespace nexrender_tutorial
 {
     public static class Util
     {
+        private static string dir = Directory.GetCurrentDirectory();
+        private static string root = Directory.GetDirectoryRoot(dir) + "/nexrender-simple-usage/";
 
         public static List<string> _headlines = new List<string>
         {
@@ -33,13 +35,13 @@ namespace nexrender_tutorial
 
         public static List<string> _days = new List<string>
         {
-            "file:///C:/nexrender-simple-usage/AE template/_img/input_img_0.jpg",
-            "file:///C:/nexrender-simple-usage/AE template/_img/input_img_1.jpg",
-            "file:///C:/nexrender-simple-usage/AE template/_img/input_img_2.jpg",
-            "file:///C:/nexrender-simple-usage/AE template/_img/input_img_3.jpg",
-            "file:///C:/nexrender-simple-usage/AE template/_img/input_img_4.jpg",
-            "file:///C:/nexrender-simple-usage/AE template/_img/input_img_5.jpg",
-            "file:///C:/nexrender-simple-usage/AE template/_img/input_img_6.jpg"
+            "file:///" + root + "AE template/_img/input_img_0.jpg",
+            "file:///" + root + "AE template/_img/input_img_1.jpg",
+            "file:///" + root + "AE template/_img/input_img_2.jpg",
+            "file:///" + root + "AE template/_img/input_img_3.jpg",
+            "file:///" + root + "AE template/_img/input_img_4.jpg",
+            "file:///" + root + "AE template/_img/input_img_5.jpg",
+            "file:///" + root + "AE template/_img/input_img_6.jpg"
         };
 
     }

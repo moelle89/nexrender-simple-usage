@@ -2,6 +2,7 @@
 using nexrender_tutorial;
 using nexrender_tutorial.Models;
 using System;
+using System.Security.Cryptography.X509Certificates;
 
 namespace nexrender
 {
@@ -10,9 +11,12 @@ namespace nexrender
         private static Random rnd = new Random();
         private static List<UserStatisticsDataModel> _userStatisticsData = new List<UserStatisticsDataModel>();
         private static List<NexrenderDataModel> _nexrenderDataModel = new List<NexrenderDataModel>();
+        private static string dir = Directory.GetCurrentDirectory();        
+        private static string root = Directory.GetDirectoryRoot(dir) + "/nexrender-simple-usage/";
         static void Main(string[] args)
         {
-            GenerateData();
+
+             GenerateData();
             PrepareData();
             RenderVideos();
         }
@@ -25,7 +29,7 @@ namespace nexrender
                 {
                     template = new Template
                     {
-                        src = @"file:///C:/nexrender-simple-usage/AE template/main.aep",
+                        src = @"file:///" + root + "AE template/main.aep",
                         composition = "Comp 1"
                     },
                     assets = new List<Assets>
@@ -98,10 +102,10 @@ namespace nexrender
         static void StartNexrender(int video)
         {
             string binary = "--binary=@\"C:/Program Files\\Adobe\\Adobe After Effects 2023\\Support Files\\aerender.exe\"";
-            System.IO.File.WriteAllText(@"C:\\nexrender-simple-usage\nexrender\main.json", JsonConvert.SerializeObject(_nexrenderDataModel[video]));
+            System.IO.File.WriteAllText(@"" + root + "nexrender/main.json", JsonConvert.SerializeObject(_nexrenderDataModel[video]));
             var proc = System.Diagnostics.Process.Start(
-                @"C:\nexrender-simple-usage\nexrender\nexrender-cli-win64.exe",
-                $"--file C:/nexrender-simple-usage/nexrender/main.json {binary}");
+               @"" + root + "nexrender/nexrender-cli-win64.exe",
+                $"--file " + root + "nexrender/main.json {binary}");
             proc.WaitForExit();
         }
         static void GenerateData()
